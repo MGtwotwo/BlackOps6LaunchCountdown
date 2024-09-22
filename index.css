@@ -29,7 +29,7 @@ body {
     opacity: 0.8;
 }
 
-.container {
+#container {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -42,7 +42,11 @@ body {
     opacity: 0.9;
 }
 
+.logo {
+    z-index: 0;
+}
 .subLogo {
+    z-index: -1;
     color: var(--orange);
 }
 
@@ -60,7 +64,13 @@ body {
     border: var(--orange) solid 0.8px;
 }
 
+.countdownFinished {
+    color: var(--orange);
+}
+
 .legalNotice {
+    z-index: 2;
+
     position: absolute;
     top: 99%;
     left: 50%;
@@ -81,6 +91,18 @@ body {
     color: aquamarine;
 }
 
+#canvas {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    z-index: 1;
+}
+
 /* For mobile */
 .title {
     margin-bottom: 7.5px;
@@ -98,6 +120,9 @@ body {
 }
 .subNumber {
     font-size: 12.5px;
+}
+.countdownFinished {
+    font-size: 64px;
 }
 
 /* For desktop */
@@ -118,5 +143,8 @@ body {
     }
     .subNumber {
         font-size: 25px;
+    }
+    .countdownFinished {
+        font-size: 128px;
     }
 }
