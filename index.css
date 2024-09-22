@@ -1,0 +1,122 @@
+:root {
+    --orange: #f96800;
+    --black: #0f0f0f;
+}
+
+@font-face {
+    font-family: "Hitmarker Condensed";
+    src: url("fonts/HitmarkerCondensed-Bold.ttf");
+}
+
+body {
+    margin: 0;
+    background-color: var(--black);
+    background-image: url("img/BackgroundTile_Dark_Desktop.webp");
+    color: #fff;
+    text-shadow: #000 0 0 20px;
+}
+
+.backgroundVideo {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -1;
+    opacity: 0.8;
+}
+
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+    font-family: "Hitmarker Condensed", sans-serif;
+    text-transform: uppercase;
+    text-align: center;
+    white-space: nowrap;
+    opacity: 0.9;
+}
+
+.subLogo {
+    color: var(--orange);
+}
+
+#countdown {
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    background-color: var(--black);
+    background-image: url("img/BackgroundTile_Dark_Desktop.webp");
+    border: var(--orange) solid 0.8px;
+}
+.number {
+    border: var(--orange) solid 0.8px;
+}
+.subNumber {
+    border: var(--orange) solid 0.8px;
+}
+
+.legalNotice {
+    position: absolute;
+    top: 99%;
+    left: 50%;
+    transform: translate(-50%, -100%);
+    overflow: hidden;
+
+    font-family: Calibri, sans-serif;
+    font-size: 12px;
+    text-align: center;
+
+    opacity: 0.5;
+}
+.legalNotice a {
+    text-decoration: none;
+    color: aqua;
+}
+.legalNotice a:hover {
+    color: aquamarine;
+}
+
+/* For mobile */
+.title {
+    margin-bottom: 7.5px;
+}
+.logo {
+    width: 309px;
+    height: auto;
+}
+.subLogo {
+    font-size: 39px;
+    line-height: 35px;
+}
+.number {
+    font-size: 32px;
+}
+.subNumber {
+    font-size: 12.5px;
+}
+
+/* For desktop */
+@media only screen and (min-width: 768px) {
+    .title {
+        margin-bottom: 15px;
+    }
+    .logo {
+        width: auto;
+        height: auto;
+    }
+    .subLogo {
+        font-size: 78px;
+        line-height: 70px;
+    }
+    .number {
+        font-size: 64px;
+    }
+    .subNumber {
+        font-size: 25px;
+    }
+}

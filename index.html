@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="" />
+    <meta name="theme-color" content="#f96800">
+    <title>Black Ops 6 Launch Countdown</title>
+    
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <video autoplay muted loop class="backgroundVideo">
+        <source src="img/Cerberus_KA_NO-LOGO.mp4" type="video/mp4">
+    </video>
+
+    <div class="container">
+        <div class="title">
+            <img class="logo" src="img/black-ops-6-full-logo.png">
+            <div class="subLogo">Launch Countdown</div>
+        </div>
+
+        <div id="countdown">
+            <span id="days" class="number"></span>
+            <span id="hours" class="number"></span>
+            <span id="minutes" class="number"></span>
+            <span id="seconds" class="number"></span>
+            
+            <span class="subNumber">Days</span>
+            <span class="subNumber">Hours</span>
+            <span class="subNumber">Minutes</span>
+            <span class="subNumber">Seconds</span>
+        </div>
+    </div>
+
+    <div class="legalNotice">
+        <p>Website <b>not</b> affiliated with Call of Duty</p>
+        <p>Source code available on <a href="https://github.com/">GitHub</a></p>
+    </div>
+
+    <script>
+        const zeroPad = (num, places) => String(num).padStart(places, '0');
+
+        // Taken from W3Schools, thanks W3Schools.
+        // Set the date we're counting down to
+        var countdownDate = new Date("Oct 25, 2024 19:00:00").getTime();
+
+        function updateDate() {
+            // Get today's date and time
+            var now = new Date().getTime();
+
+            // Find the distance between now and the count down date
+            var distance = countdownDate - now;
+
+            // Time calculations for days, hours, minutes and seconds
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Display the result in the element with id="countdown"
+            document.getElementById("days").innerHTML = zeroPad(days, 2);
+            document.getElementById("hours").innerHTML = zeroPad(hours, 2);
+            document.getElementById("minutes").innerHTML = zeroPad(minutes, 2);
+            document.getElementById("seconds").innerHTML = zeroPad(seconds, 2);
+
+            var allMetaElements = document.getElementsByTagName('meta');
+            // Loop through and find the element you want
+            for (var i=0; i<allMetaElements.length; i++) {
+                if (allMetaElements[i].getAttribute("property") == "og:title") { 
+                    // Make necessary changes
+                    allMetaElements[i].setAttribute("content", "Call of Duty: Black Ops 6 is releasing in " + days + " days, " + hours + " hours, " + minutes + " minutes and " + seconds + " seconds."); 
+                    // No need to continue loop after making changes.
+                    break;
+                }
+            }
+
+            // If the count down is finished, write some text
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("countdown").innerHTML = "OUT NOW";
+            }
+        };
+
+        // Update the countdown on website launch
+        updateDate();
+        // and repeat every second
+        var x = setInterval(function() {
+            updateDate();
+        }, 1000);
+    </script>
+</body>
+</html>
