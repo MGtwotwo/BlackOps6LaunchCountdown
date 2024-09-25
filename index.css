@@ -70,17 +70,14 @@ body {
 
 .legalNotice {
     z-index: 2;
-
     position: absolute;
     top: 99%;
     left: 50%;
     transform: translate(-50%, -100%);
     overflow: hidden;
-
     font-family: Calibri, sans-serif;
     font-size: 12px;
     text-align: center;
-
     opacity: 0.5;
 }
 .legalNotice a {
