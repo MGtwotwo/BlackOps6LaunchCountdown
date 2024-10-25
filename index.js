@@ -101,7 +101,7 @@ const zeroPad = (num, places) => String(num).padStart(places, '0');
 
 // Countdown taken from W3Schools, thanks W3Schools.
 // Set the date we're counting down to
-var countdownDate = new Date("Oct 25, 2024 19:00:00").getTime();
+var countdownDate = new Date("Oct 25, 2024 00:00:00").getTime();
 
 function updateDate() {
     // Get today's date and time
