@@ -124,9 +124,6 @@ function updateDate() {
 
     // If the countdown is finished,
     if (distance < 0) {
-        // stop updating,
-        clearInterval(x);
-        
         // remove the countdown,
         document.getElementById("countdown").remove();
         
@@ -149,5 +146,12 @@ function updateDate() {
 updateDate();
 // and repeat every second.
 var x = setInterval(function() {
-    updateDate();
+    // Check if the countdown element exists,
+    if (document.getElementById("countdown")) {
+        updateDate();
+    }
+    // stop updating if not.
+    else {
+        clearInterval(x);
+    }
 }, 1000);
